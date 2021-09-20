@@ -68,7 +68,7 @@ You can now connect to your ArangoDB instance locally, or over the internet thro
 curl $(terraform output -json | jq '.ec2.value.ec2.public_ip' | tr -d '"'):8529 -i -u john.doe:p@ssword
 ```
 
-<!-- ## 5. Mount an existing EBS volume (TODO)
+## 5. Mount an existing EBS volume (TODO)
 
 Recreate a new stack and initialise the ID of your existing EBS volume in terraform.tfvars:
 
@@ -76,7 +76,7 @@ Recreate a new stack and initialise the ID of your existing EBS volume in terraf
 volume_id = "vol-XXXXXXX"
 ```
 
-It would be a good idea to create a snapshot of that volume before mounting it, just in case, in the AWS console. -->
+It would be a good idea to create a snapshot of that volume before mounting it, just in case, in the AWS console.
 
 ## 6. Tear the stack down
 
