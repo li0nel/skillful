@@ -66,9 +66,9 @@ ssh -nNT -L 8529:$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAdd
 You can now connect to your ArangoDB instance locally, or over the internet through the Nginx reverse proxy and basic authentication:
 ```
 curl $(terraform output -json | jq '.ec2.value.ec2.public_ip' | tr -d '"'):8529 -i -u john.doe:p@ssword
+```
 
-
-<!-- ## 7. Mount an existing EBS volume
+<!-- ## 5. Mount an existing EBS volume (TODO)
 
 Recreate a new stack and initialise the ID of your existing EBS volume in terraform.tfvars:
 
@@ -78,7 +78,7 @@ volume_id = "vol-XXXXXXX"
 
 It would be a good idea to create a snapshot of that volume before mounting it, just in case, in the AWS console. -->
 
-## 8. Tear the stack down
+## 6. Tear the stack down
 
 Always remove the EBS volume from the Terraform state. By doing so, the EBS volume will not be deleted when destroying the stack
 
@@ -90,6 +90,6 @@ terraform state rm module.ec2.aws_ebs_volume.volume
 terraform destroy
 ```
 
-## 9. Switch between workspaces
+## 7. Switch between workspaces
 
 https://www.terraform.io/docs/state/workspaces.html
