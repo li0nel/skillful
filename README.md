@@ -48,7 +48,7 @@ cd docker
 docker-compose up -d
 ```
 
-::warning:: Warning: Docker seems very slow when using an SSH endpoint.
+:warning: Warning: Docker seems very slow when using an SSH endpoint.
 
 A faster alternative is to manually create an SSH tunnel between your machine and the EC2 instance:
 ```
