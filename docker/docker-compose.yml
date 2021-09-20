@@ -1,0 +1,29 @@
+services:
+  arangodb:
+    container_name: arangodb
+    image: arangodb/arangodb:3.8.1
+    # ports:
+    #   - "8529:8529"
+    environment: 
+      - ARANGO_ROOT_PASSWORD=openSesame
+    networks:
+      - mynetwork
+  
+  nginx:
+    container_name: nginx
+    build: .
+    ports:
+      - "8529:80"
+    depends_on:
+      - arangodb
+    environment: 
+      - FORWARD_HOST=arangodb
+      - FORWARD_PORT=8529
+      - BASIC_USERNAME=john.doe
+      - BASIC_PASSWORD=p@ssword
+    networks:
+      - mynetwork
+  
+networks:
+  mynetwork:
+  
